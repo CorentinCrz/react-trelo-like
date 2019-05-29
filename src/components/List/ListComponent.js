@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles/ListComponent.css";
 import AddComponent from "../../utils/AddComponent";
+import CardComponent from "../Card/index";
 
 
 class ListComponent extends React.Component {
@@ -9,10 +10,9 @@ class ListComponent extends React.Component {
         this.state = {
             name: '',
             adding: false,
-            list: ['toto']
+            list: []
         }
     }
-    name = 'carte'
     handleClick = () => {
         this.setState({
             adding: true 
@@ -29,7 +29,10 @@ class ListComponent extends React.Component {
         this.setState({name: event.target.value});
     }
     displayList = () => this.state.list.map(card => (
-        <li key={card}>{card}</li>
+        <li key={card}>
+            <h2>{card}</h2>
+            {this.props.cardComponent}
+        </li>
     ))
 
     render() {
@@ -37,10 +40,10 @@ class ListComponent extends React.Component {
             <section className="list">
                 <ul>{this.displayList()}</ul>
                 { this.state.adding &&
-                    <AddComponent name={this.name} handleSubmitAdd={this.handleSubmitAdd} handleChangeAdd={this.handleChangeAdd}/>
+                    <AddComponent name={this.props.name} handleSubmitAdd={this.handleSubmitAdd} handleChangeAdd={this.handleChangeAdd}/>
                 }
                 { !this.state.adding && 
-                    <button onClick={this.handleClick}>Ajouter une {this.name}</button>
+                    <button onClick={this.handleClick}>Ajouter une {this.props.name}</button>
                 }
             </section>
         );
