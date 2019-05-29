@@ -7,7 +7,7 @@ class CardComponent extends React.Component {
     render() {
         return (
             <section className="card">
-                <h2>{this.props.name}</h2>
+                <h3>{this.props.name}</h3>
             </section>
         );
     }

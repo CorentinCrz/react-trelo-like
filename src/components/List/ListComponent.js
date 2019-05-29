@@ -4,18 +4,18 @@ import AddComponent from "../../utils/AddComponent";
 import CardComponent from "../Card/index";
 
 
-const ListComponent = props => {
-    
-    const displayList = () => props.lists.map(card => (
-        <li key={card}>
-            <CardComponent name={card}/>
+const ListComponent = props => {    
+    const displayList = () => props.list.list.map(card => (
+        <li key={card.name}>
+            <CardComponent name={card.name}/>
         </li>
     ))
 
     return (
         <section className="list">
+            <h2>{props.list.name}</h2>
             <ul>{displayList()}</ul>
-            <AddComponent name={props.name} handleSubmitAdd={props.handleSubmitAdd} listIndex={props.listIndex}/>
+            <AddComponent name="carte" listIndex={props.listIndex} handleSubmitAdd={props.handleSubmitAdd}/>
         </section>
     )
 };

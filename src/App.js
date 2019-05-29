@@ -1,37 +1,34 @@
 import React from 'react';
 import Header from "./utils/headerComponent";
-import ListComponent from "./components/List/index";
+import ListsComponent from "./components/Lists/index";
 import './App.css';
 
 class App extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      list1: [],
-      list2: []
+      lists: []
     }
   }
   handleSubmitAdd = (name, listIndex) => {
-    let list = {};
-    list[listIndex] = this.state[listIndex].concat(name)
-    this.setState(list)
+    const list = {
+      name: name,
+      list: []
+    }
+    let lists = this.state.lists;
+    listIndex === false ? lists.push(list) : lists[listIndex].list.push(list)
+    this.setState({
+      lists: lists
+    })
   }
 
   render() {
     return (
       <div className="App">
         <Header />
-        <ListComponent 
-          name="liste" 
+        <ListsComponent 
           handleSubmitAdd={this.handleSubmitAdd} 
-          lists={this.state.list1}
-          listIndex="list1"
-        />
-        <ListComponent 
-          name="liste" 
-          handleSubmitAdd={this.handleSubmitAdd} 
-          lists={this.state.list2}
-          listIndex="list2"
+          lists={this.state.lists}
         />
       </div>
     )

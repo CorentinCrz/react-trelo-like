@@ -10,9 +10,6 @@ export default class props extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.handleSubmitAdd(this.state.name, this.props.listIndex);
-        /* this.setState({
-            lists: this.state.lists.concat(this.state.name),
-        }) */
     }
     handleChange = (event) => {
         this.setState({name: event.target.value})
