@@ -4,50 +4,20 @@ import AddComponent from "../../utils/AddComponent";
 import CardComponent from "../Card/index";
 
 
-class ListComponent extends React.Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            name: '',
-            adding: false,
-            list: []
-        }
-    }
-    handleClick = () => {
-        this.setState({
-            adding: true 
-        })
-    }
-    handleSubmitAdd = (event) => {
-        event.preventDefault()
-        this.setState({
-            list: this.state.list.concat(this.state.name),
-            adding: false 
-        })
-    }
-    handleChangeAdd = (event) => {
-        this.setState({name: event.target.value});
-    }
-    displayList = () => this.state.list.map(card => (
+const ListComponent = props => {
+    
+    const displayList = () => props.lists.map(card => (
         <li key={card}>
-            <h2>{card}</h2>
-            {this.props.cardComponent}
+            <CardComponent name={card}/>
         </li>
     ))
 
-    render() {
-        return (
-            <section className="list">
-                <ul>{this.displayList()}</ul>
-                { this.state.adding &&
-                    <AddComponent name={this.props.name} handleSubmitAdd={this.handleSubmitAdd} handleChangeAdd={this.handleChangeAdd}/>
-                }
-                { !this.state.adding && 
-                    <button onClick={this.handleClick}>Ajouter une {this.props.name}</button>
-                }
-            </section>
-        );
-    }
+    return (
+        <section className="list">
+            <ul>{displayList()}</ul>
+            <AddComponent name={props.name} handleSubmitAdd={props.handleSubmitAdd} listIndex={props.listIndex}/>
+        </section>
+    )
 };
   
   export default ListComponent;
