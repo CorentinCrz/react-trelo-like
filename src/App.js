@@ -7,7 +7,24 @@ class App extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      lists: []
+      lists: [
+        {
+          name: 'list 1',
+          list: [
+            {
+              name: 'carte 1'
+            }
+          ]
+        },
+        {
+          name: 'list 2',
+          list: [
+            {
+              name: 'carte 1'
+            }
+          ]
+        }
+      ]
     }
   }
   handleSubmitAdd = (name, listIndex) => {

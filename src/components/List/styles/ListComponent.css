@@ -1,0 +1,13 @@
+.list{
+    background: #dfe1e6;
+    border-radius: 3px;
+    margin: 5px;
+    padding: 5px;
+    width: 250px;
+}
+.list li {
+    list-style: none;
+}
+h2{
+    margin: 0;
+}

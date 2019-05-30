@@ -17,6 +17,9 @@ header {
 h1{
   font-size: 24px
 }
+.App{
+  background: rgb(0, 121, 191);
+}
 
 @keyframes App-logo-spin {
   from {
@@ -25,4 +28,49 @@ h1{
   to {
     transform: rotate(360deg);
   }
+}
+
+form.add{
+  width: 250px;
+  display: inline-block;
+}
+form .buttons{
+  margin-top: 5px;
+  display: flex;
+}
+input.addText{
+  padding: 6px 8px;
+  border-radius: 3px;
+  border: none;
+  margin: 3px;
+  width: calc(100% - 22px);
+}
+.notAdding{
+  padding: 6px 8px;
+  color: hsla(0,0%,100%,.8);
+  transition: color 85ms ease-in;
+  background-color: rgba(0,0,0,.24);
+  border: none;
+  border-radius: 3px;
+  width: 100%;
+}
+.adding{
+  padding: 6px 8px;
+  color: hsla(0,0%,100%,.8);
+  transition: color 85ms ease-in;
+  background-color: #5aac44;
+  border: none;
+  border-radius: 3px;
+  width: 80%;
+}
+.close{
+  padding: 6px 8px;
+  color: hsla(0,0%,100%,.8);
+  transition: color 85ms ease-in;
+  background-color: #9b111e;
+  border: none;
+  border-radius: 3px;
+  margin-left: 3px;
+  width: 20%;
+  display: inline-block;
 }

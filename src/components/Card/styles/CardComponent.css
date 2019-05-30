@@ -1,0 +1,10 @@
+.card{
+    background: #fff;
+    border-radius: 3px;
+    margin: 5px;
+    padding: 5px;
+    width: calc(100% - 20px);
+}
+h3{
+    margin: 0;
+}

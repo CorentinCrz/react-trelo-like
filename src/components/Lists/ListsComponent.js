@@ -20,8 +20,9 @@ const ListsComponent = props => {
 
     return (
         <section className="lists">
-            <ul>{displayList()}</ul>
-            <AddComponent name="liste" listIndex={false} handleSubmitAdd={props.handleSubmitAdd}/>
+            <ul className="lists">{displayList()}
+            <li><AddComponent name="liste" listIndex={false} handleSubmitAdd={props.handleSubmitAdd}/></li>
+            </ul>
         </section>
     )
 };
