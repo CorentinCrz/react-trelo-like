@@ -1,3 +1,3 @@
-import CardComponent from "./CardComponent";
+import CardContainer from "./CardContainer";
 
-export default CardComponent;
+export default CardContainer;

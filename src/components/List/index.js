@@ -1,3 +1,3 @@
-import ListComponent from "./ListComponent";
+import ListContainer from "./ListContainer";
 
-export default ListComponent;
+export default ListContainer;

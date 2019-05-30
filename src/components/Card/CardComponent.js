@@ -1,16 +1,19 @@
 import React from "react";
-import "./styles/CardComponent.css";
 
 
-class CardComponent extends React.Component {
-
-    render() {
-        return (
-            <section className="card">
-                <h3>{this.props.name}</h3>
-            </section>
-        );
+const CardComponent = props => {
+    const handleChangeName = (event) => {
+        props.editCard(props.listIndex, props.cardIndex, 'name', event.target.value)
     }
+
+    return (
+        <section className="over">
+            <form className="card">
+                <input onChange={handleChangeName} value={props.card.name} autoFocus/>
+                <button onClick={() => props.editModal(null, null)} className="close">X</button>
+            </form>
+        </section>
+    )
 };
   
   export default CardComponent;

@@ -1,10 +1,10 @@
 import React from "react";
-import "./styles/ListsComponent.css";
+import "./styles/ListComponent.css";
 import AddComponent from "../../utils/AddComponent";
-import ListComponent from "../List/index";
+import ListComponent from "./ListComponent";
 
 
-const ListsComponent = props => {
+const ListsContainer = props => {
     
     const displayList = () => props.lists.map((list, index) => {
         return (
@@ -13,6 +13,9 @@ const ListsComponent = props => {
                     handleSubmitAdd={props.handleSubmitAdd} 
                     list={list}
                     listIndex={index}
+                    editCard={props.editCard}
+                    modal={props.modal}
+                    editModal={props.editModal}
                 />
             </li>
         )
@@ -27,4 +30,4 @@ const ListsComponent = props => {
     )
 };
   
-  export default ListsComponent;
+  export default ListsContainer;

@@ -1,13 +1,19 @@
 import React from "react";
-import "./styles/ListComponent.css";
 import AddComponent from "../../utils/AddComponent";
-import CardComponent from "../Card/index";
+import CardContainer from "../Card/index";
 
 
 const ListComponent = props => {    
-    const displayList = () => props.list.list.map(card => (
+    const displayList = () => props.list.list.map((card, index) => (
         <li key={card.name}>
-            <CardComponent name={card.name}/>
+            <CardContainer
+                card={card}
+                editCard={props.editCard}
+                listIndex={props.listIndex}
+                cardIndex={index}
+                modal={props.modal}
+                editModal={props.editModal}
+            />
         </li>
     ))
 
