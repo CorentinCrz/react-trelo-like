@@ -67,3 +67,7 @@ class App extends React.Component{
 }
 
 export default App;
+
+// etiquette => label + couleur TagComponent 
+// list etiquettes [{name:'',color:''}]
+// assign tag to card => add tags list in card object
