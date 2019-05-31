@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from "./utils/headerComponent";
 import ListContainer from "./components/List/index";
+import Storage from "./utils/Storage";
 import './App.css';
 
 class App extends React.Component{
@@ -11,24 +12,7 @@ class App extends React.Component{
         listIndex: null,
         cardIndex: null
       },
-      lists: [
-        {
-          name: 'list 1',
-          list: [
-            {
-              name: 'carte 1'
-            }
-          ]
-        },
-        {
-          name: 'list 2',
-          list: [
-            {
-              name: 'carte 1'
-            }
-          ]
-        }
-      ]
+      lists: Storage.getLists()
     }
   }
   handleSubmitAdd = (name, listIndex) => {
@@ -38,16 +22,17 @@ class App extends React.Component{
     }
     let lists = this.state.lists;
     listIndex === false ? lists.push(list) : lists[listIndex].list.push(list)
-    this.setState({
-      lists: lists
-    })
+    this.setLists(lists)
   }
   editCard = (listIndex, cardIndex, index, value) => {
     const lists =this.state.lists
     lists[listIndex].list[cardIndex][index] = value
-    this.setState({
-      lists: lists
-    })
+    this.setLists(lists)
+  }
+  editList = (listIndex) => {
+    const lists =this.state.lists
+    lists.splice(listIndex, 1)
+    this.setLists(lists)
   }
   editModal = (listIndex, cardIndex) => {
     this.setState({
@@ -56,6 +41,12 @@ class App extends React.Component{
         cardIndex: cardIndex
       }
     })
+  }
+  setLists = lists => {
+    this.setState({
+      lists: lists
+    })
+    Storage.setLists(lists)
   }
 
   render() {
@@ -68,6 +59,7 @@ class App extends React.Component{
           modal={this.state.modal}
           editModal={this.editModal}
           editCard={this.editCard}
+          editList={this.editList}
         />
       </div>
     )
@@ -75,3 +67,7 @@ class App extends React.Component{
 }
 
 export default App;
+
+// etiquette => label + couleur TagComponent 
+// list etiquettes [{name:'',color:''}]
+// assign tag to card => add tags list in card object

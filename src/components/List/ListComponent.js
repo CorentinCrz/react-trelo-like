@@ -17,9 +17,15 @@ const ListComponent = props => {
         </li>
     ))
 
+    const handleClick = () => {
+        if ( window.confirm( `Voulez vous vraiment supprimer la liste "${props.list.name}" ainsi que toutes ses cartes ?` ) ) {
+            props.editList()
+        }
+    }
+
     return (
         <section className="list">
-            <h2>{props.list.name}</h2>
+            <h2>{props.list.name}<button onClick={handleClick} className="close floatR">X</button></h2>
             <ul>{displayList()}</ul>
             <AddComponent name="carte" listIndex={props.listIndex} handleSubmitAdd={props.handleSubmitAdd}/>
         </section>

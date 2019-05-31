@@ -16,6 +16,7 @@ const ListsContainer = props => {
                     editCard={props.editCard}
                     modal={props.modal}
                     editModal={props.editModal}
+                    editList={props.editList}
                 />
             </li>
         )

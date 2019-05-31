@@ -8,3 +8,9 @@ section.card{
 h3{
     margin: 0;
 }
+.card textarea,
+.card input{
+    border: none;
+    padding: 3px;
+    font-family: 'Courier New', Courier, monospace;
+}
