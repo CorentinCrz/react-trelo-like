@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from "./utils/headerComponent";
 import ListContainer from "./components/List/index";
+import Storage from "./utils/Storage";
 import './App.css';
 
 class App extends React.Component{
@@ -11,24 +12,7 @@ class App extends React.Component{
         listIndex: null,
         cardIndex: null
       },
-      lists: [
-        {
-          name: 'list 1',
-          list: [
-            {
-              name: 'carte 1'
-            }
-          ]
-        },
-        {
-          name: 'list 2',
-          list: [
-            {
-              name: 'carte 1'
-            }
-          ]
-        }
-      ]
+      lists: Storage.getLists()
     }
   }
   handleSubmitAdd = (name, listIndex) => {
@@ -41,6 +25,7 @@ class App extends React.Component{
     this.setState({
       lists: lists
     })
+    Storage.setLists(lists)
   }
   editCard = (listIndex, cardIndex, index, value) => {
     const lists =this.state.lists
@@ -48,6 +33,7 @@ class App extends React.Component{
     this.setState({
       lists: lists
     })
+    Storage.setLists(lists)
   }
   editModal = (listIndex, cardIndex) => {
     this.setState({
